@@ -1,5 +1,8 @@
-class BlogBoxApp {
+fun main() {
+    BlogBoxApp().run()
+}
 
+class BlogBoxApp {
     fun run() {
         // Test with 1-7 blog posts
         for (i in 1..7) blogBoxes(i)
@@ -7,6 +10,7 @@ class BlogBoxApp {
 
     private fun blogBoxes(count: Int) {
         // Put the letters "R", "B", and "W" into this array in the order they will appear on the page
+        // this could have been a list, but the original code used an array
         val myBoxes = arrayOfNulls<String>(count)
 
         // Write your code here
@@ -17,9 +21,13 @@ class BlogBoxApp {
     }
 
     private fun setColors(myBoxes: Array<String?>) {
+        // the count value is the size of the array as initialised
         val count = myBoxes.size
+
+        // whether to start with a white box for symmetry
         val startWithWhite = count % 3 == 1
 
+        // set the 'color' of the box depending on the position in the array
         for (i in 1..count) {
             when (i % 3) {
                 1 -> {
@@ -58,8 +66,4 @@ class BlogBoxApp {
         println()
         println()
     }
-}
-
-fun main() {
-    BlogBoxApp().run()
 }
