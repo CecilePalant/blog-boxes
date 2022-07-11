@@ -9,33 +9,30 @@ class BlogBoxApp {
         // Put the letters "R", "B", and "W" into this array in the order they will appear on the page
         val myBoxes = arrayOfNulls<String>(count)
 
-        val startWithWhite = count % 3 == 1
-
         // Write your code here
-        if (startWithWhite) {
-            for (i in 1..count) {
-                if (i % 3 == 1) {
-                    myBoxes[i - 1] = "W"
-                } else if (i % 3 == 2) {
-                    myBoxes[i - 1] = "R"
-                } else {
-                    myBoxes[i - 1] = "B"
-                }
-            }
-        } else {
-            for (i in 1..count) {
-                if (i % 3 == 1) {
-                    myBoxes[i - 1] = "R"
-                } else if (i % 3 == 2) {
-                    myBoxes[i - 1] = "B"
-                } else {
-                    myBoxes[i - 1] = "W"
-                }
-            }
-        }
+        setColors(myBoxes)
 
         // output boxes as ASCII art
         printBoxes(myBoxes)
+    }
+
+    private fun setColors(myBoxes: Array<String?>) {
+        val count = myBoxes.size
+        val startWithWhite = count % 3 == 1
+
+        for (i in 1..count) {
+            when (i % 3) {
+                1 -> {
+                    myBoxes[i - 1] = if (startWithWhite) "W" else "R"
+                }
+                2 -> {
+                    myBoxes[i - 1] = if (startWithWhite) "R" else "B"
+                }
+                else -> {
+                    myBoxes[i - 1] = if (startWithWhite) "B" else "W"
+                }
+            }
+        }
     }
 
     private fun printBoxes(boxes: Array<String?>) {
