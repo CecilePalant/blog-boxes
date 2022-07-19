@@ -29,6 +29,9 @@ Using maven, generate a 'fat-jar', in a terminal run `mvn clean install`
 go where `consoleApp-1.0-SNAPSHOT-jar-with-dependencies.jar` is located,
 using Java, run ` java -jar consoleApp-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
+Using Docker, run `docker build -t blogboxes .` followed by `docker run blogboxes`
+
+
 About
 =========
 
